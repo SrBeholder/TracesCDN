@@ -19,8 +19,8 @@ def VarreDiretorio(caminho,conteudoOriginal, conteudoOriginalCaminho):
 
 class Principal():
     #Diretório para comparação
-    caminhoOrigem = "/home/daniel/workplace/TracesGlobo/CopiaZica"
-    caminhoComparacao = "/home/daniel/workplace/TracesGlobo/TraceNamoral"
+    caminhoOrigem = "/media/servertrace/live/CopiaSeguranca"
+    caminhoComparacao = "/media/servertrace/live/live_vod"
     
     #Busca por arquivos repetidos para limpeza
     for conteudoCaminho in glob.glob(os.path.join(caminhoOrigem, '*')):
