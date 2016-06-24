@@ -15,7 +15,7 @@ from os import walk
 def EncontraTermo(dataNova):
     with open('Data.txt', 'r') as arquivo:
         for data in arquivo:
-            if (data != dataNova):
+            if (data == dataNova):
                 return True
     return False
 
@@ -26,21 +26,25 @@ def VarreDiretorio(caminho):
         if fnmatch.fnmatch(conteudo, '*.gz'):
             conteudo = conteudo.replace("nginx-fe_access-","")
             conteudo = conteudo.replace("nginx-fe_monitor-","")
+            conteudo = conteudo.replace("nginx-fe_crypto_access-","")
             conteudo = conteudo.replace(caminho,"")
             conteudo = conteudo.replace("/","")
             conteudo = conteudo[:8]
             print(conteudo)
-            if(EncontraTermo(conteudo) == False):
-                with open('Data.txt', 'a') as outfile:
-                    outfile.write(conteudo+"\n")
+
+            achou = EncontraTermo(conteudo)
+            print(achou)
+            if(achou == False):
+                with open("Data.txt", "a") as arquivo:
+                    arquivo.write(conteudo+"\n")
 
 class Principal():
     #Diretório com arquivos compactados
-    #caminhoOrigem = "/media/servertrace/live/live_20151230_20160126"
-    caminhoOrigem = "/home/daniel/workplace/TracesGlobo/Origem"
+    caminhoOrigem = "/media/servertrace/live/live_20151230_20160126"
+    #caminhoOrigem = "/home/daniel/workplace/TracesGlobo/Origem"
 
     #Localiza traces    
-    contadores = VarreDiretorio(caminhoOrigem)
+    VarreDiretorio(caminhoOrigem)
 
     print("fim")
                  
