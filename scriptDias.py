@@ -15,6 +15,8 @@ from os import walk
 def EncontraTermo(dataNova):
     with open('Data.txt', 'r') as arquivo:
         for data in arquivo:
+            data = data[:8]
+            #print("Compara: "+str(data)+" com "+str(dataNova))
             if (data == dataNova):
                 return True
     return False
@@ -30,17 +32,17 @@ def VarreDiretorio(caminho):
             conteudo = conteudo.replace(caminho,"")
             conteudo = conteudo.replace("/","")
             conteudo = conteudo[:8]
-            print(conteudo)
+            #print(conteudo)
 
             achou = EncontraTermo(conteudo)
-            print(achou)
+            #print(achou)
             if(achou == False):
                 with open("Data.txt", "a") as arquivo:
                     arquivo.write(conteudo+"\n")
 
 class Principal():
     #Diretório com arquivos compactados
-    caminhoOrigem = "/media/servertrace/live/live_20151230_20160126"
+    caminhoOrigem = "/media/servertrace/live/live"
     #caminhoOrigem = "/home/daniel/workplace/TracesGlobo/Origem"
 
     #Localiza traces    
