@@ -56,13 +56,12 @@ def VarreDiretorio(caminho,contadores):
     for conteudo in glob.glob(os.path.join(caminho, '*')):
         print(conteudo)
         if os.path.isdir(conteudo):
-            print("diretorio")
             contadores = VarreDiretorio(conteudo,contadores)
         if fnmatch.fnmatch(conteudo, '*.gz'):
-            print("arquivo")
+            print(contadores)
             base = os.path.basename(conteudo)
             with gzip.open(conteudo, 'rb') as infile:
-                with open('Undefined.txt', 'a') as outfile:
+                with open('Undefined.txt', 'w') as outfile:
                     #Para cada linha do arquivo de entrada
                     for linha in infile:
                         contadores[2] = contadores[2] + 1
@@ -86,13 +85,14 @@ class Principal():
     defineDicionarios()
 
     #Diretório com arquivos compactados
-    #caminhoOrigem = "/media/servertrace/live"
+    #caminhoOrigem = "/media/servertrace/live/live"
     caminhoOrigem = "/home/daniel/workplace/TracesGlobo/Origem"
 
     #Localiza traces    
     contadores = VarreDiretorio(caminhoOrigem, contadores)
 
     print(contadores)
+    print("fim")
                  
     
 
