@@ -65,7 +65,7 @@ def VarreDiretorio(caminho,dicionarioMobile, registros):
             contadores = VarreDiretorio(conteudo)
         if fnmatch.fnmatch(conteudo, '*.gz'):
             base = os.path.basename(conteudo)
-            EscreveLog("Lendo arquivo: "+str(base))
+            EscreveLog("Inicio da leitura do arquivo"+str(conteudo))
             #A cada 30 arquivos salva em arquivo
             total = total + 1
             if(total == 30):
@@ -86,7 +86,8 @@ def VarreDiretorio(caminho,dicionarioMobile, registros):
                         if(mobile):
                             registros.append(str(vetorLinha[9]))
                     except: 
-                        print("Erro leitura vetor linha")
+                        EscreveLogErro("Erro leitura vetor linha")
+            EscreveLog("Fim da leitura do arquivo "+str(conteudo))
     return registros
 
 class Principal():
