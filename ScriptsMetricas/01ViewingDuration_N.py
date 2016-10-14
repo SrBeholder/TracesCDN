@@ -84,6 +84,7 @@ def VarreDiretorio(caminho,dicionarioMobile, registros):
                         #Busca termos do dicionário Mobile na linha
                         mobile = EncontraMobile(linhaLimpa,dicionarioMobile)
                         if(mobile):
+                            #adicionar USUÁRIO 0 , SESSÃO , 
                             registros.append(str(vetorLinha[9]))
                     except: 
                         EscreveLogErro("Erro leitura vetor linha")

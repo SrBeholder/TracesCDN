@@ -42,7 +42,8 @@ def VarreDiretorio(caminho):
 
 class Principal():
     #Diretório com arquivos compactados
-    caminhoOrigem = "/media/servertrace/live/live"
+    #caminhoOrigem = "/media/servertrace/live/live"
+    caminhoOrigem = "/media/externo/live4"
     #caminhoOrigem = "/home/daniel/workplace/TracesGlobo/Origem"
 
     #Localiza traces    
